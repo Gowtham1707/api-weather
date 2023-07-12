@@ -1,0 +1,35 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'styls.css' %}">
+    <title>Document</title>
+</head>
+
+<body>
+    <form action="{% url 'api_response' %}" method="POST">
+        {% csrf_token %}
+        <label for="latitude">Latitude:</label>
+        <input type="text" name="latitude" placeholder="latitude" required>
+        <label for="longitude">Longitude:</label>
+        <input type="text" name="longitude" placeholder="longitude" required>
+        <!-- <input type="text" name="type" placeholder='type' required> -->
+        <label for="detailing-type">Detailing Type:</label>
+        <select id="detailing-type" name="type">
+            <option value="current">Minute forecast for 1 hour</option>
+            <option value="hourly">Hourly forecast for 48 hours</option>
+            <option value="daily">Daily forecast for 7 days</option>
+        </select>
+        <input type="submit">
+    </form>
+    <div>
+        {{lat}}
+        {{lon}}
+        {{typ}}
+    </div>
+</body>
+
+</html>
