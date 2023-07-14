@@ -1,6 +1,6 @@
 import requests
 
-api_key = "4a214b0349794974fa4fa320a113abb9"
+api_key = "YOUR API KEY"
 
 
 def api(lat, lon, typ):
